@@ -1,25 +1,164 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="oc2-sz-bqJ">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Article View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ArticleViewController" customModule="RSS_READER" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0OQ-D7-DIy" userLabel="Sites Scroll View">
+                                <rect key="frame" x="0.0" y="74" width="375" height="544"/>
+                            </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PSc-kb-WUb" userLabel="Header View">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="74"/>
+                                <color key="backgroundColor" red="0.19607843137254902" green="0.2196078431372549" blue="0.23529411764705882" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="74" id="cz8-Vw-jqa"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="0OQ-D7-DIy" secondAttribute="bottom" id="ESm-ZU-k6Z"/>
+                            <constraint firstItem="PSc-kb-WUb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="IFG-V9-hJU"/>
+                            <constraint firstAttribute="trailing" secondItem="0OQ-D7-DIy" secondAttribute="trailing" id="Y6p-CE-Gdq"/>
+                            <constraint firstItem="0OQ-D7-DIy" firstAttribute="top" secondItem="PSc-kb-WUb" secondAttribute="bottom" id="dQy-7v-9vk"/>
+                            <constraint firstItem="0OQ-D7-DIy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="jKT-Xo-xqH"/>
+                            <constraint firstItem="PSc-kb-WUb" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="vbK-FU-eJk"/>
+                            <constraint firstAttribute="trailing" secondItem="PSc-kb-WUb" secondAttribute="trailing" id="wcD-eq-nBd"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="YGO-5r-x0Z"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="headerView" destination="PSc-kb-WUb" id="aPD-Cs-7XP"/>
+                        <outlet property="sitesScrollView" destination="0OQ-D7-DIy" id="8Kh-w2-TUg"/>
+                        <segue destination="JWJ-LC-STC" kind="show" identifier="ShowToArticleWebViewController" id="tJr-Wy-aIk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="805.5" y="-404.5"/>
+        </scene>
+        <!--Article Web View Controller-->
+        <scene sceneID="xzC-NN-MAX">
+            <objects>
+                <viewController id="JWJ-LC-STC" customClass="ArticleWebViewController" customModule="RSS_READER" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zpE-EV-tLV"/>
+                        <viewControllerLayoutGuide type="bottom" id="0G1-5m-u9M"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Djx-Pf-8l7">
+                        <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="daF-QC-28T" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1415.5" y="11.5"/>
+        </scene>
+        <!--My Page-->
+        <scene sceneID="S1b-7t-YL9">
+            <objects>
+                <tableViewController id="mdr-7w-8ai" customClass="MyPageTableTableViewController" customModule="RSS_READER" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="KeQ-qB-Vg3">
+                        <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="mdr-7w-8ai" id="fLL-LK-Oxz"/>
+                            <outlet property="delegate" destination="mdr-7w-8ai" id="itd-O6-Ibx"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="My Page" id="asi-x7-fYZ"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <segue destination="JWJ-LC-STC" kind="show" identifier="ShowToArticleWebViewController" id="PWw-FZ-agd"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="46O-gM-YgU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="805.5" y="390.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ewK-TX-m8s">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Gj0-KP-AqW" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="recents" id="sv6-81-tIa"/>
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="UCJ-K3-2Be">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="16f-1E-i4u"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y0l-CC-GH1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="319" y="-404"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="V1A-NY-JmB">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="obQ-z9-RQa" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="bookmarks" id="sZV-rW-3MN"/>
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="6l0-cO-rs5">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.19607843137254902" green="0.2196078431372549" blue="0.23529411764705882" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="mdr-7w-8ai" kind="relationship" relationship="rootViewController" id="Whf-fr-j8y"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RA3-tN-K4X" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="318.5" y="390.5"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="7eb-wJ-FlL">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="oc2-sz-bqJ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="FfZ-qy-Kz7">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.19607843137254902" green="0.2196078431372549" blue="0.23529411764705882" alpha="1" colorSpace="calibratedRGB"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Gj0-KP-AqW" kind="relationship" relationship="viewControllers" id="2KD-yR-Dby"/>
+                        <segue destination="obQ-z9-RQa" kind="relationship" relationship="viewControllers" id="INS-Zc-31h"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wqb-Jp-GR5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-291.5" y="-185.5"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="PWw-FZ-agd"/>
+    </inferredMetricsTieBreakers>
 </document>

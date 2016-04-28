@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="ProfileTableViewCell" customModule="RSS_READER" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="199.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zDu-3v-8GJ" userLabel="Back Image View">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="199"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vo3-Ng-F0g" userLabel="Icon Image View">
+                        <rect key="frame" x="20" y="100" width="80" height="80"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="4Wa-CG-Lc3"/>
+                            <constraint firstAttribute="height" constant="80" id="PxY-JP-RfG"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G0k-Cg-4vd" userLabel="Name Label">
+                        <rect key="frame" x="115" y="128" width="172" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="sKh-M4-6PP"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="zDu-3v-8GJ" secondAttribute="trailing" id="2Rj-9v-rZw"/>
+                    <constraint firstAttribute="bottom" secondItem="zDu-3v-8GJ" secondAttribute="bottom" id="6XS-S8-0CM"/>
+                    <constraint firstItem="G0k-Cg-4vd" firstAttribute="leading" secondItem="Vo3-Ng-F0g" secondAttribute="trailing" constant="15" id="RAM-5A-4xU"/>
+                    <constraint firstItem="zDu-3v-8GJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="TcQ-vu-DCC"/>
+                    <constraint firstItem="G0k-Cg-4vd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="120" id="UHh-HD-rqA"/>
+                    <constraint firstItem="Vo3-Ng-F0g" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="eZh-oY-MqM"/>
+                    <constraint firstItem="zDu-3v-8GJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="jvM-1o-dKP"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="G0k-Cg-4vd" secondAttribute="trailing" constant="25" id="xT5-1n-fLA"/>
+                    <constraint firstItem="Vo3-Ng-F0g" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="100" id="zd4-hA-zti"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="backImageView" destination="zDu-3v-8GJ" id="G2R-V8-vxR"/>
+                <outlet property="iconImageView" destination="Vo3-Ng-F0g" id="hYT-IQ-qVL"/>
+                <outlet property="nameLabel" destination="G0k-Cg-4vd" id="bO0-Fl-Qju"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>
